@@ -1,0 +1,43 @@
+---
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Layout from "@layouts/Layout.astro";
+import { Icon } from "astro-icon";
+---
+
+<Layout title="Socials">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Socials</Fragment>
+      <Fragment slot="desc">My social media where you can follow me or contact me</Fragment>
+    </Sectionhead>
+
+    <div class="flex justify-center gap-10 mx-auto max-w-4xl mt-16">
+      <div>
+        <div class="mt-5">
+          <div class="flex items-center mt-2 space-x-2 text-gray-600 hover:text-gray-950">
+            <Icon class="text-gray-400 w-8 h-8" name="uil:github" /><a 
+            href="https://github.com/Hukasx0">Hukasx0</a>
+          </div><div class="flex items-center mt-4 space-x-2 text-gray-600 hover:text-gray-950">
+            <Icon class="text-gray-400 w-8 h-8" name="uil:envelope" /><a
+              href="mailto:hubertkasp13@gmail.com"
+              >hubertkasp13@gmail.com</a
+            >
+          </div>
+          <div class="flex items-center mt-4 space-x-2 text-gray-600 hover:text-gray-950">
+            <Icon class="text-gray-400 w-8 h-8" name="uil:globe" /><a
+              href="https://hukasx0.github.io"
+              >Personal website</a
+            >
+          </div>
+          <div class="flex items-center mt-4 space-x-2 text-gray-600 hover:text-gray-950">
+            <Icon class="text-gray-400 w-8 h-8" name="uil:discord" /><a
+              href="https://discordapp.com/users/1107028721573056614"
+              >Discord</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</Layout>

@@ -1,0 +1,63 @@
+---
+import { getCollection } from "astro:content";
+import { Picture } from "astro:assets";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
+const authors = await getCollection("authors", ({ data }) => {
+  const currentDate = new Date();
+  return !data.draft && new Date(data.publishDate) < currentDate;
+});
+---
+
+<Layout title="About">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">About me</Fragment>
+      <Fragment slot="desc">Young Fullstack developer with a passion for programming and computers</Fragment>
+    </Sectionhead>
+
+    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+      <h2 class="font-bold text-3xl text-gray-800">
+        Who am I?
+      </h2>
+      <p class="text-lg leading-relaxed text-slate-500">
+        I've been doing programming (fullstack) and cybersecurity (mostly web applications) for a few
+        years and have learned many programming languages, concepts, technologies, libraries and frameworks in that time, though <b><i>I currently
+        work mostly on</i></b> <b>.NET</b> and <b>ASP .NET</b> (<b><i>C#</i></b>), <b>Angular</b> and <b>React</b> (<b><i>TypeScript</i></b>)
+        and <b><i>Rust</i></b> (where I use <b>Actix</b> framework to write web applications). 
+        I also often use databases in my open source and
+        private projects - mainly <b>PostgreSQL</b>, <b>Sqlite</b>, <b>Redis</b> and <b>MS SQL</b>
+      </p>
+      <p class="text-lg leading-relaxed text-slate-500">In my projects, I strive to solve problems in a way that is: <b>creative</b>,
+         <b>out-of-the-box</b>, <b>optimal</b>, <b>fast</b>, <b>clean</b>, focusing on <b>efficiency</b>, <b>details</b> and <b>safety</b>
+        </p>
+    </div>
+    <div class="flex justify-center gap-10 mx-auto max-w-4xl mt-12">
+      {
+        authors.map((author) => (
+          <div class="group">
+            <div class="w-full aspect-square">
+              <Picture
+                src={author.data.avatar.src}
+                alt={author.data.avatar.alt}
+                sizes="(max-width: 800px) 100vw, 400px"
+                width={400}
+                height={400}
+                class="w-full rounded-md rounded transition group-hover:-translate-y-1 group-hover:shadow-xl bg-white object-cover object-center aspect-square"
+              />
+            </div>
+
+            <div class="mt-4 text-center">
+              <h2 class="text-lg text-gray-800">{author.data.name}</h2>
+              <h3 class="text-sm text-slate-500">
+                {author.data.title}
+              </h3>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Container>
+</Layout>
