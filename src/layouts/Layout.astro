@@ -4,6 +4,8 @@ import Footer from "@components/footer.astro";
 import Navbar from "@components/navbar/navbar.astro";
 import "@fontsource-variable/inter/index.css";
 
+import { ViewTransitions, slide } from "astro:transitions";
+
 export interface Props {
   title: string;
 }
@@ -24,17 +26,20 @@ const makeTitle = title
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-
-    <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
       title={makeTitle}
       description="Hubert 'Hukasx0' Kasperek's blog focusing on programming and IT "
       canonical={canonicalURL}
     />
+    <ViewTransitions transition:animate={
+        slide({ duration: '1s' })
+    }/>
   </head>
   <body>
     <Navbar />
-    <slot />
+    <div transition:animate={slide({duration: '0.5s'})}>
+      <slot />
+    </div>
     <Footer />
     <style is:global>
       /* Improve Page speed */

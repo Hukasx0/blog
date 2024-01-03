@@ -29,7 +29,10 @@ const { Content } = await entry.render();
       </h1>
       <div class="flex gap-2 mt-3 items-center flex-wrap md:flex-nowrap">
         <span class="text-gray-400">
-          {entry.data.author}
+          <a href="/about"
+          class="hover:underline">
+            {entry.data.author}
+          </a>
         </span>
         <span class="text-gray-400">•</span>
         <time
