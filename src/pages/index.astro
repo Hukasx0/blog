@@ -30,7 +30,7 @@ publishedBlogEntries.sort(function (a, b) {
         {
           publishedBlogEntries.map((blogPostEntry, index) => (
             <li>
-              <a href={`/posts/${blogPostEntry.slug}`}>
+              <a href={`/blog/posts/${blogPostEntry.slug}`}>
                 <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
                   <Picture
                     src={blogPostEntry.data.image.src}
