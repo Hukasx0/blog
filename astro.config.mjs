@@ -5,6 +5,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://hukasx0.github.io/blog",
+  site: "https://hukasx0.github.io",
+  base: '/blog',
   integrations: [tailwind(), mdx(), sitemap()],
 });
