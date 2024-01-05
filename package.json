@@ -1,14 +1,16 @@
 {
-  "name": "astroship",
+  "name": "blog",
   "type": "module",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "generate:md": "node scripts/newPost.cjs md",
+    "generate:mdx": "node scripts/newPost.cjs mdx"
   },
   "dependencies": {
     "@astrojs/mdx": "^1.1.5",
